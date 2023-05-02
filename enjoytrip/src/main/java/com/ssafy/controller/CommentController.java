@@ -24,9 +24,9 @@ public class CommentController {
         return commentService.selectOne(id);
     }
 
-    @GetMapping(value="/comments/group/{id}")
-    public List<Comment> selectGroup(@PathVariable String id) {
-        return commentService.selectGroup(id);
+    @GetMapping(value="/comments/qna/{id}")
+    public List<Comment> selectByContent(@PathVariable String id) {
+        return commentService.selectByContent(id);
     }
 
     @PostMapping(value="/comments")

@@ -23,7 +23,7 @@
 		select * from qna_comment where comment_id=#{commentId}
 	</select>
 
-	<select id="selectGroup" parameterType="string" resultMap="CommentResult">
+	<select id="selectByContent" parameterType="string" resultMap="CommentResult">
 		select * from qna_comment where qna_id=#{qnaId} order by comment_id  desc
 	</select>
 
