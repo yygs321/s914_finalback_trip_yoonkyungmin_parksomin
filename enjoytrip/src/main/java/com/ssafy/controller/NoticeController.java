@@ -1,12 +1,9 @@
 package com.ssafy.controller;
 
 
-import com.ssafy.service.NoticeService;
-import com.ssafy.service.QnAService;
+import com.ssafy.service.BoardService;
 import com.ssafy.vo.Notice;
-import com.ssafy.vo.QnA;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,18 +12,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class NoticeController {
 
-    private final NoticeService noticeService;
+    private final BoardService<Notice> noticeService;
 
 
     @GetMapping(value = "/notices")
     public List<Notice> selectAll() {
-        List<Notice> qna=noticeService.selectAll();
-        for (Notice q: qna) {
-            System.out.println("123");
-
-            System.out.println(q.getTitle());
-        }
-        return noticeService.selectAll();
+        List<Notice> list=noticeService.selectAll();
+        return list;
     }
 
     @GetMapping(value = "/notices/{id}")

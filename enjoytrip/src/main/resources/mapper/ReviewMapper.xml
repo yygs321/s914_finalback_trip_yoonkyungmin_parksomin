@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper file : query가 들어 있음 -->
+<mapper namespace="com.ssafy.mapper.ReviewMapper">
+
+		<resultMap id="reviewResult" type="Review">
+			<result column="review_id" property="reviewId"/>
+			<result column="user_id" property="userId"/>
+			<result column="content_id" property="contentId"/>
+			<result column="review_content" property="reviewContent"/>
+			<result column="rating" property="rating"/>
+			<result column="image" property="image"/>
+		</resultMap>
+
+	<select id="selectByUserId" parameterType="string" resultMap="reviewResult">
+		select * from attraction_review where user_id = #{userId}
+	</select>
+
+	<select id="selectByAttraction" parameterType="string" resultMap="reviewResult">
+		select * from attraction_review where content_id = #{attractionId}
+	</select>
+
+	<select id="selectOne" parameterType="String" resultMap="reviewResult">
+		select * from attraction_review where review_id=#{reviewId}
+	</select>
+
+	<insert id="insert" parameterType="Review">
+		insert into attraction_review(user_id, content_id, review_content, rating, image) values(#{userId}, #{contentId}, #{reviewContent}, #{rating}, #{image});
+	</insert>
+
+	<update id="update" parameterType="Review">
+		update attraction_review set review_content=#{reviewContent}, image=#{image}, rating=#{rating} where review_id=#{reviewId}
+	</update>
+
+	<delete id="delete" parameterType="string">
+		delete from attraction_review where review_id=#{reviewId}
+	</delete>
+	
+</mapper>
