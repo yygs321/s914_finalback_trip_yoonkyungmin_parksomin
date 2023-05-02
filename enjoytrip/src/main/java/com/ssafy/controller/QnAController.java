@@ -1,6 +1,7 @@
 package com.ssafy.controller;
 
 
+import com.ssafy.service.BoardService;
 import com.ssafy.service.QnAService;
 import com.ssafy.vo.QnA;
 import lombok.AllArgsConstructor;
@@ -16,22 +17,13 @@ public class QnAController {
 
     private final QnAService qnaService;
 
-
     @GetMapping(value = "/qna")
     public List<QnA> selectAll() {
-        List<QnA> qna=qnaService.selectAll();
-        for (QnA q: qna) {
-            System.out.println("123");
-
-            System.out.println(q.getQna_title());
-        }
         return qnaService.selectAll();
     }
 
     @GetMapping(value = "/qna/{id}")
     public QnA selectOne(@PathVariable String id) {
-        QnA q=qnaService.selectOne(id);
-        System.out.println(q);
         return qnaService.selectOne(id);
     }
 
