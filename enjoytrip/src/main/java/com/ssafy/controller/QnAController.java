@@ -2,6 +2,7 @@ package com.ssafy.controller;
 
 
 import com.ssafy.service.BoardService;
+import com.ssafy.service.QnAService;
 import com.ssafy.vo.QnA;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

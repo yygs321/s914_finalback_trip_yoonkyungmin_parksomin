@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper file : query가 들어 있음 -->
+<mapper namespace="com.ssafy.mapper.AttractionMapper">
+
+		<resultMap id="attractionResult" type="Attraction">
+			<result column="content_id" property="contentId"/>
+			<result column="content_type_id" property="contentTypeId"/>
+			<result column="title" property="title"/>
+			<result column="addr1" property="addr1"/>
+			<result column="addr2" property="addr2"/>
+			<result column="zipcode" property="zipcode"/>
+			<result column="tel" property="tel"/>
+			<result column="first_image" property="firstImage"/>
+			<result column="first_image2" property="firstImage2"/>
+			<result column="readcount" property="readCount"/>
+			<result column="sido_code" property="sidoCode"/>
+			<result column="gugun_code" property="gugunCode"/>
+			<result column="latitude" property="latitude"/>
+			<result column="longitude" property="longitude"/>
+			<result column="bookmark_cnt" property="bookmark_cnt"/>
+			<result column="rating" property="rating"/>
+		</resultMap>
+
+	<select id="selectArea" parameterType="String" resultMap="attractionResult">
+		select * from attraction_info where sido_code = #{sidoCode}
+	</select>
+
+	<select id="selectCategory" parameterType="map" resultMap="attractionResult">
+		select * from attraction_info where sido_code = #{sidoCode} and content_type_id = #{contentType}
+	</select>
+	
+</mapper>
