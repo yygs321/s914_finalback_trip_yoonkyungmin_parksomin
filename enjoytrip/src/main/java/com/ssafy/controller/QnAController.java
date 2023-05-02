@@ -3,16 +3,18 @@ package com.ssafy.controller;
 
 import com.ssafy.service.QnAService;
 import com.ssafy.vo.QnA;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class QnAController {
 
-    @Autowired
-    QnAService qnaService;
+    private final QnAService qnaService;
 
 
     @GetMapping(value = "/qna")
