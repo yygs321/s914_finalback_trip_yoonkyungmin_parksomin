@@ -20,9 +20,19 @@ public class BookmarkController {
         return bookmarkService.selectAll();
     }
 
+
+    @GetMapping(value="/bookmarks/user/{id}")
+    public List<Bookmark> selectByUser(@PathVariable String id) {
+        return bookmarkService.selectByUser(id);
+    }
+
+    @GetMapping(value="/bookmarks/content/{id}")
+    public List<Bookmark> selectByContent(@PathVariable String id) {
+        return bookmarkService.selectByContent(id);
+    }
+
     @PostMapping(value = "/bookmarks")
     public int insert(@RequestBody Bookmark bookmark) {
-
         return bookmarkService.insert(bookmark);
     }
 

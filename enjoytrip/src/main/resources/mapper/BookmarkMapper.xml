@@ -18,6 +18,15 @@
 	</select>
 
 
+	<select id="selectByUser" parameterType="string" resultMap="BookmarkResult">
+		select * from bookmark where user_id=#{userId} order by bookmark_id desc
+	</select>
+
+	<select id="selectByContent" parameterType="string" resultMap="BookmarkResult">
+		select * from bookmark where content_id=#{contentId} order by bookmark_id desc
+	</select>
+
+
 	<insert id="insert" parameterType="Bookmark">
 		insert into bookmark values(null, #{userId}, #{contentId})
 	</insert>

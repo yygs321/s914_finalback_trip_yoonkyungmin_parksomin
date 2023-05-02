@@ -3,10 +3,8 @@ package com.ssafy.service;
 import com.ssafy.mapper.BookmarkMapper;
 import com.ssafy.vo.Bookmark;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Book;
 import java.util.List;
 
 @Service
@@ -18,6 +16,16 @@ public class BookmarkServiceImpl implements BookmarkService{
     @Override
     public List<Bookmark> selectAll() {
         return bookmarkMapper.selectAll();
+    }
+
+    @Override
+    public List<Bookmark> selectByUser(String id) {
+        return bookmarkMapper.selectByUser(id);
+    }
+
+    @Override
+    public List<Bookmark> selectByContent(String id) {
+        return bookmarkMapper.selectByContent(id);
     }
 
     @Override
