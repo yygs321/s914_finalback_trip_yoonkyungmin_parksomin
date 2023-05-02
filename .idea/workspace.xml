@@ -5,20 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a28899cd-0965-405b-a509-2344e00d491a" name="Changes" comment="[fix] 파일 재업로드">
-      <change afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/controller/BookmarkController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/controller/CommentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/mapper/BookmarkMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/mapper/CommentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/BookmarkService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/BookmarkServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/CommentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/CommentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/vo/Comment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/enjoytrip/src/main/resources/mapper/BookmarkMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/enjoytrip/src/main/resources/mapper/CommentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/controller/BookmarkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/controller/BookmarkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/controller/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/controller/QnAController.java" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/controller/QnAController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/mapper/BookmarkMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/mapper/BookmarkMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/BookmarkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/BookmarkService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/BookmarkServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/BookmarkServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/CommentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/MemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/NoticeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/NoticeServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/QnAServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/service/QnAServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/vo/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/vo/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/vo/QnA.java" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/java/com/ssafy/vo/QnA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/resources/mapper/BookmarkMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/resources/mapper/BookmarkMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/resources/mapper/CommentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/resources/mapper/CommentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/resources/mapper/NoticeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/resources/mapper/NoticeMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/enjoytrip/src/main/resources/mapper/QnAMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/enjoytrip/src/main/resources/mapper/QnAMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +56,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -127,7 +129,7 @@
       <workItem from="1682951883860" duration="24583000" />
       <workItem from="1682994874173" duration="439000" />
       <workItem from="1682995317293" duration="123000" />
-      <workItem from="1682995477990" duration="7105000" />
+      <workItem from="1682995477990" duration="12790000" />
     </task>
     <task id="LOCAL-00001" summary="[fix] 파일 재업로드">
       <created>1682993287644</created>

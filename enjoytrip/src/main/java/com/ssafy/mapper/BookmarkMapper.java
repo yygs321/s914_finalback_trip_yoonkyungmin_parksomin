@@ -8,6 +8,6 @@ import java.util.List;
 @Mapper
 public interface BookmarkMapper {
     public List<Bookmark> selectAll();
-    public int insert();
-    public int delete(String id);
+    public int insert(Bookmark bookmark);
+    public int delete(Bookmark bookmark);
 }

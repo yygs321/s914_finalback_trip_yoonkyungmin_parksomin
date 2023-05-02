@@ -21,12 +21,13 @@ public class BookmarkController {
     }
 
     @PostMapping(value = "/bookmarks")
-    public int insert() {
-        return bookmarkService.insert();
+    public int insert(@RequestBody Bookmark bookmark) {
+
+        return bookmarkService.insert(bookmark);
     }
 
-    @DeleteMapping(value = "/bookmarks/{id}")
-    public int delete(@PathVariable String id) {
-        return bookmarkService.delete(id);
+    @DeleteMapping(value = "/bookmarks")
+    public int delete(@RequestBody Bookmark bookmark) {
+        return bookmarkService.delete(bookmark);
     }
 }

@@ -6,26 +6,33 @@
 <!-- mapper file : query가 들어 있음 -->
 <mapper namespace="com.ssafy.mapper.QnAMapper">
 
+	<resultMap id="QnAResult" type="QnA">
+		<result column="qna_id" property="id"/>
+		<result column="qna_title" property="title"/>
+		<result column="qna_content" property="content"/>
+		<result column="user_id" property="userId"/>
+		<result column="secret" property="secret"/>
+	</resultMap>
 
-	<select id="selectAll" resultType="QnA">
+	<select id="selectAll" resultMap="QnAResult">
 		select * from qna order by qna_id desc
 	</select>
 
 
-	<select id="selectOne" parameterType="string" resultType="QnA">
-		select * from qna where qna_id=#{qna_id}
+	<select id="selectOne" parameterType="string" resultMap="QnAResult">
+		select * from qna where qna_id=#{id}
 	</select>
 
 	<insert id="insert" parameterType="QnA">
-		insert into qna values(null, #{qna_title}, #{qna_content}, #{user_id},#{secret})
+		insert into qna values(null, #{title}, #{content}, #{userId},#{secret})
 	</insert>
 
 	<update id="update" parameterType="QnA">
-		update qna set qna_title=#{qna_title}, qna_content=#{qna_content}, secret=#{secret} where qna_id=#{qna_id}
+		update qna set qna_title=#{title}, qna_content=#{content}, secret=#{secret} where qna_id=#{id}
 	</update>
 
 	<delete id="delete" parameterType="string">
-		delete from qna where qna_id=#{qna_id}
+		delete from qna where qna_id=#{id}
 	</delete>
 	
 </mapper>

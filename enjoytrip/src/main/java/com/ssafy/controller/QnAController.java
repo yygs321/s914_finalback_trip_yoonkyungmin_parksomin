@@ -29,13 +29,13 @@ public class QnAController {
     }
 
     @PostMapping(value = "/qnas")
-    public int insert(@RequestBody QnA qnA) {
-        return qnaService.insert(qnA);
+    public int insert(@RequestBody QnA qna) {
+        return qnaService.insert(qna);
     }
 
     @PutMapping(value = "/qnas")
-    public int update(@RequestBody QnA qnA) {
-        return qnaService.update(qnA);
+    public int update(@RequestBody QnA qna) {
+        return qnaService.update(qna);
     }
 
     @DeleteMapping(value = "/qnas/{id}")

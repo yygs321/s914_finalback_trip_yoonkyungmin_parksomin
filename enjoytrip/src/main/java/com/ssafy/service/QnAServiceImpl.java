@@ -2,16 +2,17 @@ package com.ssafy.service;
 
 import com.ssafy.mapper.QnAMapper;
 import com.ssafy.vo.QnA;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class QnAServiceImpl implements BoardService<QnA>{
 
-    @Autowired
-    QnAMapper qnaMapper;
+    private final QnAMapper qnaMapper;
 
 
     @Override

@@ -6,19 +6,25 @@
 <!-- mapper file : query가 들어 있음 -->
 <mapper namespace="com.ssafy.mapper.BookmarkMapper">
 
+	<resultMap id="BookmarkResult" type="Bookmark">
+		<result column="bookmark_id" property="bookmarkId"/>
+		<result column="user_id" property="userId"/>
+		<result column="content_id" property="contentId"/>
+	</resultMap>
 
-	<select id="selectAll" resultType="Bookmark">
+
+	<select id="selectAll" resultMap="BookmarkResult">
 		select * from bookmark order by bookmark_id desc
 	</select>
 
 
 	<insert id="insert" parameterType="Bookmark">
-		insert into bookmark values(null, #{user_id}, #{content_id})
+		insert into bookmark values(null, #{userId}, #{contentId})
 	</insert>
 
 
-	<delete id="delete" parameterType="string">
-		delete from bookmark where bookmark_id=#{bookmard_id}
+	<delete id="delete" parameterType="Bookmark">
+		delete from bookmark where user_id=#{userId} and content_id=#{contentId}
 	</delete>
 	
 </mapper>

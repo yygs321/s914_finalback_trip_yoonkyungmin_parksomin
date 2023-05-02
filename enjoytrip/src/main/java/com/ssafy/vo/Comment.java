@@ -10,8 +10,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Comment {
-    private String comment_id;
-    private String qna_id;
-    private String user_id;
-    private String qna_comment;
+    private String commentId;
+    private String qnaId;
+    private String userId;
+    private String comment;
 }

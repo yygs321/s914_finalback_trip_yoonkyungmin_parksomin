@@ -1,9 +1,11 @@
 package com.ssafy.service;
 
 import com.ssafy.vo.Notice;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class NoticeServiceImpl implements NoticeService{
     @Override
     public List<Notice> selectAll() {

@@ -9,12 +9,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class QnA{
+public class QnA extends Board{
 
-    private String qna_id;
-    private String qna_title;
-    private String qna_content;
-    private String user_id;
     private String secret;
 
 }

@@ -7,29 +7,36 @@
 <mapper namespace="com.ssafy.mapper.CommentMapper">
 
 
-	<select id="selectAll" resultType="Comment">
+	<resultMap id="CommentResult" type="Comment">
+		<result column="comment_id" property="commentId"/>
+		<result column="qna_id" property="qnaId"/>
+		<result column="user_id" property="userId"/>
+		<result column="qna_comment" property="comment"/>
+	</resultMap>
+
+	<select id="selectAll" resultMap="CommentResult">
 		select * from qna_comment order by comment_id desc
 	</select>
 
 
-	<select id="selectOne" parameterType="string" resultType="Comment">
-		select * from qna_comment where comment_id=#{comment_id}
+	<select id="selectOne" parameterType="string" resultMap="CommentResult">
+		select * from qna_comment where comment_id=#{commentId}
 	</select>
 
-	<select id="selectGroup" parameterType="string" resultType="Comment">
-		select * from qna_comment where qna_id=#{qna_id} order by comment_id  desc
+	<select id="selectGroup" parameterType="string" resultMap="CommentResult">
+		select * from qna_comment where qna_id=#{qnaId} order by comment_id  desc
 	</select>
 
 	<insert id="insert" parameterType="Comment">
-		insert into qna_comment values(null, #{qna_id}, #{user_id},#{qna_comment})
+		insert into qna_comment values(null, #{qnaId}, #{userId},#{comment})
 	</insert>
 
 	<update id="update" parameterType="Comment">
-		update qna_comment set qna_comment=#{qna_comment} where comment_id=#{comment_id}
+		update qna_comment set qna_comment=#{comment} where comment_id=#{commentId}
 	</update>
 
 	<delete id="delete" parameterType="string">
-		delete from qna_comment where comment_id=#{comment_id}
+		delete from qna_comment where comment_id=#{commentId}
 	</delete>
 	
 </mapper>
