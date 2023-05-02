@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper file : query가 들어 있음 -->
+<mapper namespace="com.ssafy.mapper.QnAMapper">
+
+
+	<select id="selectAll" resultType="QnA">
+		select * from qna order by qna_id desc
+	</select>
+
+
+	<select id="selectOne" parameterType="string" resultType="QnA">
+		select * from qna where qna_id=#{qna_id}
+	</select>
+
+	<insert id="insert" parameterType="QnA">
+		insert into qna values(null, #{qna_title}, #{qna_content}, #{user_id},#{secret})
+	</insert>
+
+	<update id="update" parameterType="QnA">
+		update qna set qna_title=#{qna_title}, qna_content=#{qna_content}, secret=#{secret} where qna_id=#{qna_id}
+	</update>
+
+	<delete id="delete" parameterType="string">
+		delete from qna where qna_id=#{qna_id}
+	</delete>
+	
+</mapper>
