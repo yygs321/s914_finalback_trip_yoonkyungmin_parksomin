@@ -7,10 +7,10 @@ import lombok.*;
 @AllArgsConstructor
 public class Board {
 
-    String id;
-    String title;
-    String content;
-    String userId;
+    private String id;
+    private String title;
+    private String content;
+    private String userId;
 
 
 }

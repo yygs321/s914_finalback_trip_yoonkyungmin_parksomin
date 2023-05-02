@@ -18,6 +18,7 @@ public class AttractionController {
 
     @GetMapping(value = "/attractions/{sido}")
     public List<Attraction> selectArea(@PathVariable("sido") String sidoCode) {
+        System.out.println("sido list!!!!");
         List<Attraction> list = attractionService.selectArea(sidoCode);
         return list;
     }

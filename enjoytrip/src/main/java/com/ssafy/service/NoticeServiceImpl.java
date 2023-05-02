@@ -1,32 +1,39 @@
 package com.ssafy.service;
 
+import com.ssafy.mapper.NoticeMapper;
 import com.ssafy.vo.Notice;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class NoticeServiceImpl implements NoticeService{
+@Service
+@RequiredArgsConstructor
+public class NoticeServiceImpl implements BoardService<Notice>{
+
+    private final NoticeMapper mapper;
     @Override
     public List<Notice> selectAll() {
-        return null;
+        return mapper.selectAll();
     }
 
     @Override
     public Notice selectOne(String id) {
-        return null;
+        return mapper.selectOne(id);
     }
 
     @Override
     public int insert(Notice notice) {
-        return 0;
+        return mapper.insert(notice);
     }
 
     @Override
     public int update(Notice notice) {
-        return 0;
+        return mapper.update(notice);
     }
 
     @Override
     public int delete(String id) {
-        return 0;
+        return mapper.delete(id);
     }
 }

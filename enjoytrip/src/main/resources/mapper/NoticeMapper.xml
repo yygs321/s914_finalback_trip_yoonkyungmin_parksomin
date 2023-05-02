@@ -14,24 +14,24 @@
 	</resultMap>
 
 	<select id="selectAll" resultMap="noticeResult">
-		select * from notice order by desc notice_id
+		select * from notice order by notice_id desc
 	</select>
 
 
-	<select id="selectOne" parameterType="string" resultType="noticeResult">
-		select * from qna where notice_id=#{noticeId}
+	<select id="selectOne" parameterType="string" resultMap="noticeResult">
+		select * from notice where notice_id=#{noticeId}
 	</select>
 
 	<insert id="insert" parameterType="Notice">
-		insert into qna values(null, #{qna_title}, #{qna_content}, #{user_id},#{secret})
+		insert into notice values(null, #{title}, #{content}, #{userId})
 	</insert>
 
 	<update id="update" parameterType="Notice">
-		update qna set qna_title=#{qna_title}, qna_content=#{qna_content}, secret=#{secret} where qna_id=#{qna_id}
+		update notice set notice_title=#{title}, notice_content=#{content} where notice_id=#{id}
 	</update>
 
 	<delete id="delete" parameterType="string">
-		delete from qna where qna_id=#{qna_id}
+		delete from notice where notice_id=#{noticeId}
 	</delete>
-	
+
 </mapper>
