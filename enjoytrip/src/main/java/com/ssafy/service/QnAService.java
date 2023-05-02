@@ -1,15 +1,15 @@
 package com.ssafy.service;
 
 
-import com.ssafy.vo.Board;
+import com.ssafy.vo.QnA;
 
 import java.util.List;
 
-public interface BoardService<T> {
-    public List<T> selectAll();
+public interface QnAService {
+    public List<QnA> selectAll();
 
-    public T selectOne(String id);
-    public int insert(T t);
-    public int update(T t);
+    public QnA selectOne(String id);
+    public int insert(QnA qna);
+    public int update(QnA qna);
     public int delete(String id);
 }

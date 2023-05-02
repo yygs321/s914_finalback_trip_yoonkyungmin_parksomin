@@ -4,30 +4,26 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- mapper file : query가 들어 있음 -->
-<mapper namespace="com.mvc.mapper.CustomerMapper">
+<mapper namespace="com.ssafy.mapper.MemberMapper">
 
-	<select id="selectAll" resultType="Customer">
-		select * from customer order by num desc
+	<select id="selectAll" resultType="Member">
+		select * from user order by id desc
 	</select>
-	
-	<select id="selectOne" parameterType="string" resultType="Customer" >
-        select * from customer where num = #{num}
-    </select>
 
-	<insert id="insert" parameterType="Customer">
-		insert into customer values(#{num}, #{name}, #{address}) 
+	<select id="selectOne" parameterType="string" resultType="Member">
+		select * from user where id=#{id}
+	</select>
+
+	<insert id="insert" parameterType="Member">
+		insert into user values(#{id}, #{email}, #{pass}, #{name}, #{grade})
 	</insert>
-	
-	<update id="modify" parameterType="Customer">
-    	update customer set num =#{num} , name = #{name}, address = #{address} where num = #{num}
+
+	<update id="update" parameterType="Member">
+		update user set email= #{email}, pass=#{pass}, name=#{name}, grade=#{grade} where id=#{id}
 	</update>
-	
+
 	<delete id="delete" parameterType="string">
-		delete from customer where num = #{num}
+		delete from user where id=#{id}
 	</delete>
-	
-	<select id="findByAddress" resultType="Customer" parameterType="string">
-		select * from customer where address = #{address}
-	</select>
 	
 </mapper>

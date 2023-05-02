@@ -1,41 +1,50 @@
 package com.ssafy.controller;
 
-import com.ssafy.service.MemberService;
-import com.ssafy.vo.Member;
+
+import com.ssafy.service.QnAService;
+import com.ssafy.vo.QnA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class MemberController {
+public class QnAController {
 
     @Autowired
-    MemberService memberService;
+    QnAService qnaService;
 
-    @GetMapping(value = "/members")
-    public List<Member> selectAll() {
-        return memberService.selectAll();
+
+    @GetMapping(value = "/qna")
+    public List<QnA> selectAll() {
+        List<QnA> qna=qnaService.selectAll();
+        for (QnA q: qna) {
+            System.out.println("123");
+
+            System.out.println(q.getQna_title());
+        }
+        return qnaService.selectAll();
     }
 
-    //회원정보조회
-    @GetMapping(value="/members/{id}")
-    public Member selectOne(@PathVariable String id) {
-        return memberService.selectOne(id);
+    @GetMapping(value = "/qna/{id}")
+    public QnA selectOne(@PathVariable String id) {
+        QnA q=qnaService.selectOne(id);
+        System.out.println(q);
+        return qnaService.selectOne(id);
     }
 
-    @PostMapping(value="/members")
-    public int insert(@RequestBody Member member) {
-        return memberService.insert(member);
+    @PostMapping(value = "/qna")
+    public int insert(@RequestBody QnA qnA) {
+        return qnaService.insert(qnA);
     }
 
-    @PutMapping(value = "/members")
-    public int update(@RequestBody Member member) {
-        return memberService.update(member);
+    @PutMapping(value = "/qna")
+    public int update(@RequestBody QnA qnA) {
+        return qnaService.update(qnA);
     }
 
-    @DeleteMapping(value = "/members/{id}")
+    @DeleteMapping(value = "/qna/{id}")
     public int delete(@PathVariable String id) {
-        return memberService.delete(id);
+        return qnaService.delete(id);
     }
 }

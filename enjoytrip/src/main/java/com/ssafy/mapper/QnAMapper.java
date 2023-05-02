@@ -1,15 +1,22 @@
-package com.ssafy.service;
+package com.ssafy.mapper;
 
 
-import com.ssafy.vo.Board;
+import com.ssafy.vo.QnA;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-public interface BoardService {
-    public List<Board> selectAll();
+@Mapper
+public interface QnAMapper{
 
-    public Board selectOne(String id);
-    public int insert(Board board);
-    public int update(Board board);
+    public List<QnA> selectAll();
+
+    public QnA selectOne(String id);
+
+    public int insert(QnA qnA);
+
+
+    public int update(QnA qnA);
+
     public int delete(String id);
 }
