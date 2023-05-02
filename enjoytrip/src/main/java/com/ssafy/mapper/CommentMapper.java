@@ -1,22 +1,24 @@
 package com.ssafy.mapper;
 
 
-import com.ssafy.vo.QnA;
+import com.ssafy.vo.Comment;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
-public interface QnAMapper{
+public interface CommentMapper {
 
-    public List<QnA> selectAll();
+    public List<Comment> selectAll();
 
-    public QnA selectOne(String id);
+    public Comment selectOne(String id);
 
-    public int insert(QnA qnA);
+    public List<Comment> selectGroup(String id);
+
+    public int insert(Comment comment);
 
 
-    public int update(QnA qnA);
+    public int update(Comment comment);
 
     public int delete(String id);
 }

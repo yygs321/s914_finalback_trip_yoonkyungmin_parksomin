@@ -2,16 +2,18 @@ package com.ssafy.controller;
 
 import com.ssafy.service.MemberService;
 import com.ssafy.vo.Member;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class MemberController {
 
-    @Autowired
-    MemberService memberService;
+
+    private final MemberService memberService;
 
     @GetMapping(value = "/members")
     public List<Member> selectAll() {

@@ -2,41 +2,42 @@ package com.ssafy.controller;
 
 
 import com.ssafy.service.BoardService;
-import com.ssafy.service.QnAService;
 import com.ssafy.vo.QnA;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class QnAController2 {
-
-    @Autowired
-    BoardService<QnA> qnaService;
+@RequiredArgsConstructor
+public class QnAController {
 
 
-    @GetMapping(value = "/qna")
+    private final BoardService<QnA> qnaService;
+
+
+    @GetMapping(value = "/qnas")
     public List<QnA> selectAll() {
         return qnaService.selectAll();
     }
 
-    @GetMapping(value = "/qna/{id}")
+    @GetMapping(value = "/qnas/{id}")
     public QnA selectOne(@PathVariable String id) {
         return qnaService.selectOne(id);
     }
 
-    @PostMapping(value = "/qna")
+    @PostMapping(value = "/qnas")
     public int insert(@RequestBody QnA qnA) {
         return qnaService.insert(qnA);
     }
 
-    @PutMapping(value = "/qna")
+    @PutMapping(value = "/qnas")
     public int update(@RequestBody QnA qnA) {
         return qnaService.update(qnA);
     }
 
-    @DeleteMapping(value = "/qna/{id}")
+    @DeleteMapping(value = "/qnas/{id}")
     public int delete(@PathVariable String id) {
         return qnaService.delete(id);
     }

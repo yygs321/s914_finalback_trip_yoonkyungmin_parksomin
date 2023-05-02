@@ -6,16 +6,9 @@
 <!-- mapper file : query가 들어 있음 -->
 <mapper namespace="com.ssafy.mapper.QnAMapper">
 
-<!--	<resultMap id="qnaResult" type="QnA">-->
-<!--		<result column="qna_id" property="id"/>-->
-<!--		<result column="qna_title" property="title"/>-->
-<!--		<result column="qna_content" property="content"/>-->
-<!--		<result column="user_id" property="userId"/>-->
-<!--		<result column="secret" property="secret"/>-->
-<!--	</resultMap>-->
 
 	<select id="selectAll" resultType="QnA">
-		select * from qna
+		select * from qna order by qna_id desc
 	</select>
 
 

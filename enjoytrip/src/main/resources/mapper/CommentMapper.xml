@@ -4,28 +4,32 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- mapper file : query가 들어 있음 -->
-<mapper namespace="com.ssafy.mapper.QnAMapper">
+<mapper namespace="com.ssafy.mapper.CommentMapper">
 
 
-	<select id="selectAll" resultType="QnA">
-		select * from qna
+	<select id="selectAll" resultType="Comment">
+		select * from qna_comment order by comment_id desc
 	</select>
 
 
-	<select id="selectOne" parameterType="string" resultType="QnA">
-		select * from qna where qna_id=#{qna_id}
+	<select id="selectOne" parameterType="string" resultType="Comment">
+		select * from qna_comment where comment_id=#{comment_id}
 	</select>
 
-	<insert id="insert" parameterType="QnA">
-		insert into qna values(null, #{qna_title}, #{qna_content}, #{user_id},#{secret})
+	<select id="selectGroup" parameterType="string" resultType="Comment">
+		select * from qna_comment where qna_id=#{qna_id} order by comment_id  desc
+	</select>
+
+	<insert id="insert" parameterType="Comment">
+		insert into qna_comment values(null, #{qna_id}, #{user_id},#{qna_comment})
 	</insert>
 
-	<update id="update" parameterType="QnA">
-		update qna set qna_title=#{qna_title}, qna_content=#{qna_content}, secret=#{secret} where qna_id=#{qna_id}
+	<update id="update" parameterType="Comment">
+		update qna_comment set qna_comment=#{qna_comment} where comment_id=#{comment_id}
 	</update>
 
 	<delete id="delete" parameterType="string">
-		delete from qna where qna_id=#{qna_id}
+		delete from qna_comment where comment_id=#{comment_id}
 	</delete>
 	
 </mapper>

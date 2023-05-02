@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class QnAServiceImpl implements QnAService{
+public class QnAServiceImpl implements BoardService<QnA>{
 
     @Autowired
     QnAMapper qnaMapper;
@@ -16,7 +16,6 @@ public class QnAServiceImpl implements QnAService{
 
     @Override
     public List<QnA> selectAll() {
-
         return qnaMapper.selectAll();
     }
 
