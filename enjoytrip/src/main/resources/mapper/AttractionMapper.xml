@@ -37,8 +37,14 @@
 		select * from attraction_info where content_id = #{contentId}
 	</select>
 	
-	<update id="updateCount" parameterType="String">
+	<update id="updateReadCount" parameterType="String">
 		update attraction_info set readcount = readcount+1 where content_id = #{contentId};
+	</update>
+
+	<update id="updateRating" parameterType="String">
+		update attraction_info
+		set rating = (select avg(rating) from attraction_review where content_id = #{contentId})
+		where content_id = #{contentId};
 	</update>
 	
 </mapper>

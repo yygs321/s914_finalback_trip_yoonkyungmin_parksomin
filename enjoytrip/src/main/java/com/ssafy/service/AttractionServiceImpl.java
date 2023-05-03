@@ -31,7 +31,7 @@ public class AttractionServiceImpl implements AttractionService{
 
     @Override
     public Attraction selectAttraction(String contentId) {
-        mapper.updateCount(contentId);
+        mapper.updateReadCount(contentId);
         return mapper.selectAttraction(contentId);
     }
 }

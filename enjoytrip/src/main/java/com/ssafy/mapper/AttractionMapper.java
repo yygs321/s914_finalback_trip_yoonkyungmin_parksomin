@@ -13,5 +13,7 @@ public interface AttractionMapper {
 
     public Attraction selectAttraction(String contentId);
 
-    public void updateCount(String contentId);
+    public void updateReadCount(String contentId);
+
+    public void updateRating(String contentId);
 }

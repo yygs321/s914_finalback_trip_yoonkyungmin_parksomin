@@ -44,8 +44,8 @@ public class ReviewController {
         return reviewService.update(review);
     }
 
-    @DeleteMapping(value = "/reviews/{id}")
-    public int delete(@PathVariable String id) {
-        return reviewService.delete(id);
+    @DeleteMapping(value = "/reviews")
+    public int delete(@RequestParam("id") String id, @RequestParam("contentId") String contentId) {
+        return reviewService.delete(id, contentId);
     }
 }
