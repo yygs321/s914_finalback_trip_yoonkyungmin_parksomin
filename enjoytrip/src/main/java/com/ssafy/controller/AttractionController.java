@@ -16,18 +16,20 @@ public class AttractionController {
 
     private final AttractionService attractionService;
 
-    @GetMapping(value = "/attractions/{sido}")
+    @GetMapping(value = "/attractions/search/{sido}")
     public List<Attraction> selectArea(@PathVariable("sido") String sidoCode) {
-        System.out.println("sido list!!!!");
         List<Attraction> list = attractionService.selectArea(sidoCode);
         return list;
     }
 
-    @GetMapping(value = "/attractions")
+    @GetMapping(value = "/attractions/search")
     public List<Attraction> selectArea(@RequestParam("sido") String sidoCode, @RequestParam("contentTypeId") String contentType) {
-        System.out.println("sidoCode = " + sidoCode);
-        System.out.println("contentType = " + contentType);
         return attractionService.selectCategory(sidoCode, contentType);
+    }
+
+    @GetMapping(value = "/attractions/{contentId}")
+    public Attraction selectOne(@PathVariable("contentId") String contentId) {
+        return attractionService.selectAttraction(contentId);
     }
 
 

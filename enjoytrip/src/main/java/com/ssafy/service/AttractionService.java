@@ -9,4 +9,6 @@ public interface AttractionService {
     public List<Attraction> selectArea(String sidoCode);
 
     public List<Attraction> selectCategory(String sidoCode, String contentType);
+
+    public Attraction selectAttraction(String contentId);
 }

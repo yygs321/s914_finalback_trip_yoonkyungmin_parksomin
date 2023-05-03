@@ -28,4 +28,9 @@ public class AttractionServiceImpl implements AttractionService{
         map.put("contentType", contentType);
         return mapper.selectCategory(map);
     }
+
+    @Override
+    public Attraction selectAttraction(String contentId) {
+        return mapper.selectAttraction(contentId);
+    }
 }
