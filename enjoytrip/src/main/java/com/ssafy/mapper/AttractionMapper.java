@@ -12,4 +12,6 @@ public interface AttractionMapper {
     public List<Attraction> selectCategory(Map<String, String> map);
 
     public Attraction selectAttraction(String contentId);
+
+    public void updateCount(String contentId);
 }

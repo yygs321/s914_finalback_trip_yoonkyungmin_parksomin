@@ -37,4 +37,8 @@
 		select * from attraction_info where content_id = #{contentId}
 	</select>
 	
+	<update id="updateCount" parameterType="String">
+		update attraction_info set readcount = readcount+1 where content_id = #{contentId};
+	</update>
+	
 </mapper>
