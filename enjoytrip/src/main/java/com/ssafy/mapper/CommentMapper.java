@@ -13,7 +13,7 @@ public interface CommentMapper {
 
     public Comment selectOne(String id);
 
-    public List<Comment> selectGroup(String id);
+    public List<Comment> selectByContent(String id);
 
     public int insert(Comment comment);
 

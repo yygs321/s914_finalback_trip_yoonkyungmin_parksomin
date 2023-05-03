@@ -26,8 +26,8 @@ public class CommentServiceImpl implements CommentService{
 
     //qna별 comment
     @Override
-    public List<Comment> selectGroup(String id) {
-        return commentMapper.selectGroup(id);
+    public List<Comment> selectByContent(String id) {
+        return commentMapper.selectByContent(id);
     }
 
     @Override
