@@ -32,5 +32,9 @@
 	<select id="selectCategory" parameterType="map" resultMap="attractionResult">
 		select * from attraction_info where sido_code = #{sidoCode} and content_type_id = #{contentType}
 	</select>
+
+	<select id="selectAttraction" parameterType="String" resultMap="attractionResult">
+		select * from attraction_info where content_id = #{contentId}
+	</select>
 	
 </mapper>
