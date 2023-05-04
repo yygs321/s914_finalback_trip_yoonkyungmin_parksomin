@@ -36,7 +36,15 @@
 	<select id="selectAttraction" parameterType="String" resultMap="attractionResult">
 		select * from attraction_info where content_id = #{contentId}
 	</select>
-	
+
+	<update id="updateBookmarkCount" parameterType="String">
+		update attraction_info set bookmark_cnt = bookmark_cnt +1 where content_id =#{contentId}
+	</update>
+
+	<update id="deleteBookmarkCount" parameterType="String">
+		update attraction_info set bookmark_cnt = bookmark_cnt -1 where content_id =#{contentId}
+	</update>
+
 	<update id="updateReadCount" parameterType="String">
 		update attraction_info set readcount = readcount+1 where content_id = #{contentId};
 	</update>
