@@ -17,6 +17,7 @@ public class BookmarkController {
 
     @GetMapping(value = "/bookmarks")
     public List<Bookmark> selectAll() {
+
         return bookmarkService.selectAll();
     }
 
