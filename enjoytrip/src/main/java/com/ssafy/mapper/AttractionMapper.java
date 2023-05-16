@@ -13,6 +13,9 @@ public interface AttractionMapper {
 
     public Attraction selectAttraction(String contentId);
 
+    public void updateBookmarkCount(String contentId);
+    public void deleteBookmarkCount(String contentId);
+
     public void updateReadCount(String contentId);
 
     public void updateRating(String contentId);
