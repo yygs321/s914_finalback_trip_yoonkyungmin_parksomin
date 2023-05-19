@@ -17,6 +17,11 @@ public class AttractionServiceImpl implements AttractionService{
     private final AttractionMapper mapper;
 
     @Override
+    public List<Attraction> selectTopAttractions() {
+        return mapper.selectTopAttractions();
+    }
+
+    @Override
     public List<Attraction> selectArea(String sidoCode) {
         return mapper.selectArea(sidoCode);
     }

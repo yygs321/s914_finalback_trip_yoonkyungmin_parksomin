@@ -25,6 +25,11 @@
 			<result column="rating" property="rating"/>
 		</resultMap>
 
+	<select id="selectTopAttractions" parameterType="String" resultMap="attractionResult">
+		select * from attraction_info where content_type_id=12
+		order by readcount desc limit 12
+	</select>
+
 	<select id="selectArea" parameterType="String" resultMap="attractionResult">
 		select * from attraction_info where sido_code = #{sidoCode}
 	</select>

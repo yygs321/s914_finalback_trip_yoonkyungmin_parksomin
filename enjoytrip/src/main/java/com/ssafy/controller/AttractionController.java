@@ -3,18 +3,22 @@ package com.ssafy.controller;
 import com.ssafy.service.AttractionService;
 import com.ssafy.vo.Attraction;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequiredArgsConstructor
 public class AttractionController {
 
     private final AttractionService attractionService;
+
+    @GetMapping(value = "/attractions/top")
+    public List<Attraction> selectTopAttractions() {
+        List<Attraction> list = attractionService.selectTopAttractions();
+        return list;
+    }
 
     @GetMapping(value = "/attractions/search/{sido}")
     public List<Attraction> selectArea(@PathVariable("sido") String sidoCode) {

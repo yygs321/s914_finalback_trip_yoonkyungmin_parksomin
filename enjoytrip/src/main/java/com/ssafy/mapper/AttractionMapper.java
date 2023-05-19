@@ -8,6 +8,8 @@ import java.util.Map;
 
 @Mapper
 public interface AttractionMapper {
+
+    public List<Attraction> selectTopAttractions();
     public List<Attraction> selectArea(String sidoCode);
     public List<Attraction> selectCategory(Map<String, String> map);
 
