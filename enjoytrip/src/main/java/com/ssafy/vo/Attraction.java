@@ -28,5 +28,9 @@ public class Attraction {
     private String bookmark_cnt;
     private String rating;
 
+    private String sido;
+    private String overview;
+
+
 
 }

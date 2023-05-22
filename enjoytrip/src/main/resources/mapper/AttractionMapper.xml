@@ -23,6 +23,8 @@
 			<result column="longitude" property="longitude"/>
 			<result column="bookmark_cnt" property="bookmark_cnt"/>
 			<result column="rating" property="rating"/>
+			<result column="overview" property="overview"/>
+			<result column="sido_name" property="sido"/>
 		</resultMap>
 
 	<select id="selectTopAttractions" parameterType="String" resultMap="attractionResult">
@@ -31,7 +33,8 @@
 	</select>
 
 	<select id="selectArea" parameterType="String" resultMap="attractionResult">
-		select * from attraction_info where sido_code = #{sidoCode}
+		select * from attraction_info
+		         where sido_code = #{sidoCode}
 	</select>
 
 	<select id="selectCategory" parameterType="map" resultMap="attractionResult">
@@ -39,7 +42,12 @@
 	</select>
 
 	<select id="selectAttraction" parameterType="String" resultMap="attractionResult">
-		select * from attraction_info where content_id = #{contentId}
+		select * from attraction_info as a
+					inner join attraction_description as b
+					on a.content_id = b.content_id
+		  			inner join sido as s
+					on a.sido_code = s.sido_code
+		         	where a.content_id = #{contentId}
 	</select>
 
 	<update id="updateBookmarkCount" parameterType="String">

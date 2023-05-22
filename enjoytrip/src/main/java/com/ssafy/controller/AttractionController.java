@@ -2,6 +2,7 @@ package com.ssafy.controller;
 
 import com.ssafy.service.AttractionService;
 import com.ssafy.vo.Attraction;
+import com.ssafy.vo.Weather;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,6 +35,11 @@ public class AttractionController {
     @GetMapping(value = "/attractions/{contentId}")
     public Attraction selectOne(@PathVariable("contentId") String contentId) {
         return attractionService.selectAttraction(contentId);
+    }
+
+    @GetMapping(value = "/attractions/weather?sido={sido}&gugun={gugun}")
+    public Weather crawlingWeather(@PathVariable("sido") String sido, @PathVariable("gugun") String gugun){
+        return
     }
 
 

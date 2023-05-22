@@ -2,6 +2,7 @@ package com.ssafy.service;
 
 import com.ssafy.mapper.AttractionMapper;
 import com.ssafy.vo.Attraction;
+import com.ssafy.vo.Weather;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -38,5 +39,10 @@ public class AttractionServiceImpl implements AttractionService{
     public Attraction selectAttraction(String contentId) {
         mapper.updateReadCount(contentId);
         return mapper.selectAttraction(contentId);
+    }
+
+    @Override
+    public Weather crawlingWeather(String sido, String gugun) {
+        return null;
     }
 }
