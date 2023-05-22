@@ -27,6 +27,11 @@
 			<result column="sido_name" property="sido"/>
 		</resultMap>
 
+		<resultMap id="areaResult" type="Area">
+			<result column="sido_name" property="sidoName"/>
+			<result column="gugun_name" property="gugunName"/>
+		</resultMap>
+
 	<select id="selectTopAttractions" parameterType="String" resultMap="attractionResult">
 		select * from attraction_info where content_type_id=12
 		order by readcount desc limit 12
@@ -67,5 +72,12 @@
 		set rating = (select avg(rating) from attraction_review where content_id = #{contentId})
 		where content_id = #{contentId};
 	</update>
+
+	<select id="selectAreaName" parameterType="map" resultMap="areaResult">
+		SELECT sido_name, gugun_name FROM sido s
+				inner join gugun g
+				on s.sido_code = g.sido_code
+				where s.sido_code = #{sido} and g.gugun_code = #{gugun};
+	</select>
 	
 </mapper>

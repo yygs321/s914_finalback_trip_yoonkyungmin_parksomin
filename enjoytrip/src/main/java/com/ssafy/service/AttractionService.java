@@ -15,5 +15,5 @@ public interface AttractionService {
 
     public Attraction selectAttraction(String contentId);
 
-    public Weather crawlingWeather(String sido, String gugun);
+    public List<Weather> crawlingWeather(String sido, String gugun);
 }

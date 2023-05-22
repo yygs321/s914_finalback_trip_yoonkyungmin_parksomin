@@ -20,8 +20,8 @@ public class Weather {
     private String pmImg;
     private String amWeather;
     private String pmWeather;
-    private String amTemperature;
-    private String pmTemperature;
+    private String lowTemperature;
+    private String highTemperature;
 
 
 

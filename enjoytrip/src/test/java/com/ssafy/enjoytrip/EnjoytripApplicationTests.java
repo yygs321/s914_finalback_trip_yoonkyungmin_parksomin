@@ -28,9 +28,10 @@ class EnjoytripApplicationTests {
 			for (Element element : weatherElements) {
 				Elements icons = element.select(".wt_icon");
 				List<String> iconList = new ArrayList<>();
-				for (Element icon : icons) {
+				for (int i = 0; i < 2; i++) {
+					Element icon = icons.get(i);
 					icon.removeClass("wt_icon");
-					iconList.add(icon.classNames().toString());
+					System.out.println(icon.className().substring(4));
 				}
 				String date = element.select(".cell_date").text();
 				String weather = element.select(".cell_weather").text();

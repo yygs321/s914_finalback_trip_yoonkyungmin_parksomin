@@ -1,5 +1,6 @@
 package com.ssafy.mapper;
 
+import com.ssafy.vo.Area;
 import com.ssafy.vo.Attraction;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -21,4 +22,6 @@ public interface AttractionMapper {
     public void updateReadCount(String contentId);
 
     public void updateRating(String contentId);
+
+    public Area selectAreaName(String sido, String gugun);
 }

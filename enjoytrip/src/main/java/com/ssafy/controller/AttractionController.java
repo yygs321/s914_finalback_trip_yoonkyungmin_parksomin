@@ -37,9 +37,9 @@ public class AttractionController {
         return attractionService.selectAttraction(contentId);
     }
 
-    @GetMapping(value = "/attractions/weather?sido={sido}&gugun={gugun}")
-    public Weather crawlingWeather(@PathVariable("sido") String sido, @PathVariable("gugun") String gugun){
-        return
+    @GetMapping(value = "/attractions/weather")
+    public List<Weather> crawlingWeather(@RequestParam("sido") String sido, @RequestParam("gugun") String gugun){
+        return attractionService.crawlingWeather(sido, gugun);
     }
 
 
