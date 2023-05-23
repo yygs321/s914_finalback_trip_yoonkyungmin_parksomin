@@ -11,7 +11,7 @@ import java.util.Map;
 public interface AttractionMapper {
 
     public List<Attraction> selectTopAttractions();
-    public List<Attraction> selectArea(String sidoCode);
+    public List<Attraction> selectArea(String keyword);
     public List<Attraction> selectCategory(Map<String, String> map);
 
     public Attraction selectAttraction(String contentId);

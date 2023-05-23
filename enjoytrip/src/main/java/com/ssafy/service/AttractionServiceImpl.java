@@ -49,7 +49,10 @@ public class AttractionServiceImpl implements AttractionService{
 
     @Override
     public List<Weather> crawlingWeather(String sido, String gugun) {
+        System.out.println(sido);
+        System.out.println(gugun);
         Area area = mapper.selectAreaName(sido, gugun);
+        System.out.println(area.getGugunName());
         List<Weather> list = new ArrayList<>();
 
         try {
@@ -59,8 +62,12 @@ public class AttractionServiceImpl implements AttractionService{
             // 날씨 정보를 담고 있는 요소들 선택
             Elements weatherElements = doc.select(".week_item");
 
+            int cnt = 0;
             // 날씨 정보 출력
             for (Element element : weatherElements) {
+                cnt++;
+                if(cnt > 7)
+                    break;
                 Weather weather = new Weather();
                 Elements icons = element.select(".wt_icon");
                 Element temperature = element.selectFirst(".cell_temperature");

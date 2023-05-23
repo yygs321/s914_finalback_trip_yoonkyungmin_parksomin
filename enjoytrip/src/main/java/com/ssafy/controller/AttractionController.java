@@ -21,9 +21,9 @@ public class AttractionController {
         return list;
     }
 
-    @GetMapping(value = "/attractions/search/{sido}")
-    public List<Attraction> selectArea(@PathVariable("sido") String sidoCode) {
-        List<Attraction> list = attractionService.selectArea(sidoCode);
+    @GetMapping(value = "/attractions/search/{keyword}")
+    public List<Attraction> selectArea(@PathVariable("keyword") String keyword) {
+        List<Attraction> list = attractionService.selectArea(keyword);
         return list;
     }
 
