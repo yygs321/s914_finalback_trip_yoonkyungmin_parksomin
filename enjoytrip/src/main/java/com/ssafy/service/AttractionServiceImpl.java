@@ -34,10 +34,17 @@ public class AttractionServiceImpl implements AttractionService{
     }
 
     @Override
+    public List<Attraction> selectByContentType(String contentTypeId) {
+        return mapper.selectByContentType(contentTypeId);
+    }
+
+    @Override
     public List<Attraction> selectCategory(String sidoCode, String contentType) {
         Map<String, String> map = new HashMap<>();
-        map.put("sidoCode", sidoCode);
-        map.put("contentType", contentType);
+        map.put("keyword", sidoCode);
+        map.put("contentTypeId", contentType);
+        System.out.println(sidoCode);
+        System.out.println(contentType);
         return mapper.selectCategory(map);
     }
 
@@ -49,10 +56,7 @@ public class AttractionServiceImpl implements AttractionService{
 
     @Override
     public List<Weather> crawlingWeather(String sido, String gugun) {
-        System.out.println(sido);
-        System.out.println(gugun);
         Area area = mapper.selectAreaName(sido, gugun);
-        System.out.println(area.getGugunName());
         List<Weather> list = new ArrayList<>();
 
         try {
@@ -69,6 +73,8 @@ public class AttractionServiceImpl implements AttractionService{
                 if(cnt > 7)
                     break;
                 Weather weather = new Weather();
+                weather.setSido(area.getSidoName());
+                weather.setGugun(area.getGugunName());
                 Elements icons = element.select(".wt_icon");
                 Element temperature = element.selectFirst(".cell_temperature");
                 String date = element.select(".cell_date").text();
