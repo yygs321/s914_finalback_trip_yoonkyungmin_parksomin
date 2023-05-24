@@ -1,41 +1,52 @@
 package com.ssafy.service;
 
+
 import com.ssafy.mapper.MemberMapper;
 import com.ssafy.vo.Member;
-import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
-@RequiredArgsConstructor
-public class MemberServiceImpl implements MemberService{
+public class MemberServiceImpl implements MemberService {
 
-    private final MemberMapper memberMapper;
+	@Autowired
+	private SqlSession sqlSession;
 
-    @Override
-    public List<Member> selectAll() {
-        return memberMapper.selectAll();
-    }
+	@Override
+	public Member login(Member member) throws Exception {
+		if (member.getId() == null || member.getPass() == null)
+			return null;
+		return sqlSession.getMapper(MemberMapper.class).login(member);
+	}
 
-    @Override
-    public Member selectOne(String id) {
-        return memberMapper.selectOne(id);
-    }
+	@Override
+	public Member userInfo(String userid) throws Exception {
+		return sqlSession.getMapper(MemberMapper.class).userInfo(userid);
+	}
 
-    @Override
-    public int insert(Member member) {
-        return memberMapper.insert(member);
-    }
+	@Override
+	public void saveRefreshToken(String userid, String refreshToken) throws Exception {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("userid", userid);
+		map.put("token", refreshToken);
+		sqlSession.getMapper(MemberMapper.class).saveRefreshToken(map);
+	}
 
-    @Override
-    public int update(Member member) {
-        return memberMapper.update(member);
-    }
+	@Override
+	public Object getRefreshToken(String userid) throws Exception {
+		return sqlSession.getMapper(MemberMapper.class).getRefreshToken(userid);
+	}
 
-    @Override
-    public int delete(String id) {
-        return memberMapper.delete(id);
-    }
+	@Override
+	public void deleRefreshToken(String userid) throws Exception {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("userid", userid);
+		map.put("token", null);
+		sqlSession.getMapper(MemberMapper.class).deleteRefreshToken(map);
+	}
+
 }

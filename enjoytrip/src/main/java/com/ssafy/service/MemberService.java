@@ -1,15 +1,14 @@
 package com.ssafy.service;
 
-import com.ssafy.vo.Member;
 
-import java.util.List;
+import com.ssafy.vo.Member;
 
 public interface MemberService {
 
-    public List<Member> selectAll();
-
-    public Member selectOne(String id);
-    public int insert(Member member);
-    public int update(Member member);
-    public int delete(String id);
+	public Member login(Member member) throws Exception;
+	public Member userInfo(String userid) throws Exception;
+	public void saveRefreshToken(String userid, String refreshToken) throws Exception;
+	public Object getRefreshToken(String userid) throws Exception;
+	public void deleRefreshToken(String userid) throws Exception;
+	
 }
