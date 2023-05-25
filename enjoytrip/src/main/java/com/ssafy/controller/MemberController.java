@@ -147,6 +147,7 @@ public class MemberController {
 	@CrossOrigin("*")
 	@PutMapping(value = "")
 	public int update(@RequestBody Member member) throws Exception {
+		logger.info("{}", member);
 		return memberService.update(member);
 	}
 

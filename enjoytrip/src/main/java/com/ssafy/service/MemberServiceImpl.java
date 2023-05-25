@@ -68,6 +68,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int update(Member member) throws Exception {
+		member.setPass(passwordEncoder.encode(member.getPass()));
 		return sqlSession.getMapper(MemberMapper.class).update(member);
 	}
 
@@ -79,7 +80,6 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean dupCheck(String id) throws Exception {
 		String res = sqlSession.getMapper(MemberMapper.class).dupCheck(id);
-		System.out.println(res);
 		if (res == null)
 			return true;
 		return false;
