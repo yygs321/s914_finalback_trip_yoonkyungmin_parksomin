@@ -34,12 +34,11 @@ public class MemberController {
 	@PostMapping("/login")
 	public ResponseEntity<Map<String, Object>> login(
 			@RequestBody Member member) {
-		System.out.println("dfsfs1231c");
 		Map<String, Object> resultMap = new HashMap<>();
 		HttpStatus status = null;
 		try {
+			logger.info("{}", member.getPass());
 			Member loginUser = memberService.login(member);
-			System.out.println(loginUser.toString());
 			if (loginUser != null) {
 				System.out.println(loginUser.getId());
 				String accessToken = jwtService.createAccessToken("id", loginUser.getId());// key, data
@@ -138,5 +137,33 @@ public class MemberController {
 		}
 		return new ResponseEntity<Map<String, Object>>(resultMap, status);
 	}
+
+	@CrossOrigin("*")
+	@PostMapping(value="")
+	public int insert(@RequestBody Member member) throws Exception {
+		return memberService.insert(member);
+	}
+
+	@CrossOrigin("*")
+	@PutMapping(value = "")
+	public int update(@RequestBody Member member) throws Exception {
+		logger.info("{}", member);
+		return memberService.update(member);
+	}
+
+	@CrossOrigin("*")
+	@DeleteMapping(value = "/{id}")
+	public int delete(@PathVariable String id) throws Exception {
+		logger.info("{}", id);
+		return memberService.delete(id);
+	}
+
+	@CrossOrigin("*")
+	@GetMapping(value = "/check/{id}")
+	public boolean dupCheck(@PathVariable String id) throws Exception {
+		logger.info("{}", id);
+		return memberService.dupCheck(id);
+	}
+
 
 }

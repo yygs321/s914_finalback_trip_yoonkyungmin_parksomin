@@ -5,13 +5,13 @@
 <mapper namespace="com.ssafy.mapper.MemberMapper">
 
 	<select id="login" parameterType="Member" resultType="Member">
-		select id, email, name, grade
+		select id, email, name, grade, pass
 		from user
-		where id = #{id} and pass = #{pass}
+		where id = #{id}
 	</select>
 	
 	<select id="userInfo" parameterType="string" resultType="Member">
-		select id,email, name, grade
+		select id,email, name, grade, address
 		from user
 		where id = #{userid}
 	</select>
@@ -33,5 +33,26 @@
 		set token = #{token, jdbcType=VARCHAR}
 		where id = #{id}
 	</update>
+
+	<insert id="insert" parameterType="Member">
+		insert into user values(#{id}, #{email}, #{pass}, #{name}, #{address}, 1, null)
+	</insert>
+
+	<update id="update" parameterType="Member">
+		update user
+		set pass = #{pass}, email = #{email}, address = #{address}
+		where id = #{id}
+	</update>
+
+	<delete id="delete" parameterType="String">
+		delete from user
+		where id = #{id}
+	</delete>
+
+	<select id="dupCheck" parameterType="string" resultType="string">
+		select id
+		from user
+		where id = #{id}
+	</select>
 	
 </mapper>

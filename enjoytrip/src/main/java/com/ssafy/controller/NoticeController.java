@@ -22,22 +22,27 @@ public class NoticeController {
         return list;
     }
 
+    @CrossOrigin("*")
     @GetMapping(value = "/notices/{id}")
     public Notice selectOne(@PathVariable String id) {
         Notice notice = noticeService.selectOne(id);
         return notice;
     }
 
-    @PostMapping(value = "/insertNotice")
+
+    @CrossOrigin("*")
+    @PostMapping(value = "/insertNotices")
     public int insert(@RequestBody Notice notice) {
         return noticeService.insert(notice);
     }
 
-    @PutMapping(value = "/notices")
+    @CrossOrigin("*")
+    @PutMapping(value = "/notices/{id}")
     public int update(@RequestBody Notice notice) {
         return noticeService.update(notice);
     }
 
+    @CrossOrigin("*")
     @DeleteMapping(value = "/notices/{id}")
     public int delete(@PathVariable String id) {
         return noticeService.delete(id);
