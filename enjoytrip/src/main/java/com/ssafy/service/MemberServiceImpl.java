@@ -31,7 +31,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void saveRefreshToken(String userid, String refreshToken) throws Exception {
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("userid", userid);
+		map.put("id", userid);
 		map.put("token", refreshToken);
 		sqlSession.getMapper(MemberMapper.class).saveRefreshToken(map);
 	}
