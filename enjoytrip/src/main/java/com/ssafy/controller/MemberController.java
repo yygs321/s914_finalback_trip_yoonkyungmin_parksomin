@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+
 @RestController
 @RequestMapping("/users")
 public class MemberController {
@@ -29,6 +30,7 @@ public class MemberController {
 	private MemberService memberService;
 
 
+	@CrossOrigin("*")
 	@PostMapping("/login")
 	public ResponseEntity<Map<String, Object>> login(
 			@RequestBody Member member) {
@@ -62,7 +64,7 @@ public class MemberController {
 		return new ResponseEntity<Map<String, Object>>(resultMap, status);
 	}
 
-
+	@CrossOrigin("*")
 	@GetMapping("/info/{id}")
 	public ResponseEntity<Map<String, Object>> getInfo(
 			@PathVariable("id") String id,
@@ -91,7 +93,7 @@ public class MemberController {
 		return new ResponseEntity<Map<String, Object>>(resultMap, status);
 	}
 
-
+	@CrossOrigin("*")
 	@GetMapping("/logout/{id}")
 	public ResponseEntity<?> removeToken(@PathVariable("id") String id) {
 		Map<String, Object> resultMap = new HashMap<>();
@@ -109,7 +111,7 @@ public class MemberController {
 
 	}
 
-
+	@CrossOrigin("*")
 	@PostMapping("/refresh")
 	public ResponseEntity<?> refreshToken(@RequestBody Member memberDto, HttpServletRequest request)
 			throws Exception {
