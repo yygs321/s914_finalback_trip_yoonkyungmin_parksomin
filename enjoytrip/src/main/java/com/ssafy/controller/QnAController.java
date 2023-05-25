@@ -43,3 +43,4 @@ public class QnAController {
         return qnaService.delete(id);
     }
 }
+

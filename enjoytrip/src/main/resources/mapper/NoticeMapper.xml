@@ -14,7 +14,7 @@
 	</resultMap>
 
 	<select id="selectAll" resultMap="noticeResult">
-		select * from notice order by notice_id desc
+		select * from notice order by createdAt desc
 	</select>
 
 
@@ -23,7 +23,7 @@
 	</select>
 
 	<insert id="insert" parameterType="Notice">
-		insert into notice values(null, #{title}, #{content}, #{userId})
+		insert into notice values(null, #{title}, #{content}, #{userId} ,current_timestamp)
 	</insert>
 
 	<update id="update" parameterType="Notice">
