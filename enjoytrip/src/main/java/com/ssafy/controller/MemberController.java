@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+
 @RestController
 @RequestMapping("/users")
 public class MemberController {
@@ -93,7 +94,6 @@ public class MemberController {
 		}
 		return new ResponseEntity<Map<String, Object>>(resultMap, status);
 	}
-
 
 	@CrossOrigin("*")
 	@GetMapping("/logout/{id}")
