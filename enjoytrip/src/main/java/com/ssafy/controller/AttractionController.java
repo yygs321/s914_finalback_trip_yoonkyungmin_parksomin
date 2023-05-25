@@ -21,15 +21,22 @@ public class AttractionController {
         return list;
     }
 
-    @GetMapping(value = "/attractions/search/{keyword}")
+    @GetMapping(value = "/attractions/search/keyword/{keyword}")
     public List<Attraction> selectArea(@PathVariable("keyword") String keyword) {
         List<Attraction> list = attractionService.selectArea(keyword);
         return list;
     }
 
+    @GetMapping(value = "/attractions/search/category/{contentTypeId}")
+    public List<Attraction> selectByContentType(@PathVariable("contentTypeId") String contentTypeId) {
+        System.out.println("category!!!!");
+        List<Attraction> list = attractionService.selectByContentType(contentTypeId);
+        return list;
+    }
+
     @GetMapping(value = "/attractions/search")
-    public List<Attraction> selectArea(@RequestParam("sido") String sidoCode, @RequestParam("contentTypeId") String contentType) {
-        return attractionService.selectCategory(sidoCode, contentType);
+    public List<Attraction> selectArea(@RequestParam("keyword") String keyword, @RequestParam("contentTypeId") String contentTypeId) {
+        return attractionService.selectCategory(keyword, contentTypeId);
     }
 
     @GetMapping(value = "/attractions/{contentId}")

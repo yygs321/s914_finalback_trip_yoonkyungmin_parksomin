@@ -10,6 +10,7 @@ public interface AttractionService {
 
     public List<Attraction> selectTopAttractions();
     public List<Attraction> selectArea(String sidoCode);
+    public List<Attraction> selectByContentType(String contentTypeId);
 
     public List<Attraction> selectCategory(String sidoCode, String contentType);
 

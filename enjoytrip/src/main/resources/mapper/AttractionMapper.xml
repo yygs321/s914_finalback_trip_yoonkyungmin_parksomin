@@ -47,8 +47,24 @@
 			order by readcount desc;
 	</select>
 
+	<select id="selectByContentType" parameterType="String" resultMap="attractionResult">
+		SELECT distinct content_id, title, rating, addr1, first_image, readcount FROM attraction_info a
+		  inner join sido s
+					 on a.sido_code = s.sido_code
+		  inner join gugun g
+					 on s.sido_code = g.sido_code
+		where a.content_type_id = #{contentTypeId}
+		order by readcount desc;
+	</select>
+
 	<select id="selectCategory" parameterType="map" resultMap="attractionResult">
-		select * from attraction_info where sido_code = #{sidoCode} and content_type_id = #{contentType}
+		SELECT distinct content_id, title, rating, addr1, first_image, readcount FROM attraction_info a
+			  inner join sido s
+						 on a.sido_code = s.sido_code
+			  inner join gugun g
+						 on s.sido_code = g.sido_code
+		where a.content_type_id = #{contentTypeId} and (s.sido_name like CONCAT('%', #{keyword}, '%') or g.gugun_name like CONCAT('%', #{keyword}, '%') or a.title like CONCAT('%', #{keyword}, '%'))
+		order by readcount desc;
 	</select>
 
 	<select id="selectAttraction" parameterType="String" resultMap="attractionResult">

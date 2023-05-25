@@ -12,6 +12,7 @@ public interface AttractionMapper {
 
     public List<Attraction> selectTopAttractions();
     public List<Attraction> selectArea(String keyword);
+    public List<Attraction> selectByContentType(String contentTypeId);
     public List<Attraction> selectCategory(Map<String, String> map);
 
     public Attraction selectAttraction(String contentId);
