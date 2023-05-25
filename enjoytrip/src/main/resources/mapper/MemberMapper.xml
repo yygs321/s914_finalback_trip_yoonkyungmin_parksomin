@@ -11,9 +11,9 @@
 	</select>
 	
 	<select id="userInfo" parameterType="string" resultType="Member">
-		select id,email, name
+		select id,email, name, grade
 		from user
-		where id = #{id}
+		where id = #{userid}
 	</select>
 	
 	<select id="getRefreshToken" parameterType="string" resultType="string">

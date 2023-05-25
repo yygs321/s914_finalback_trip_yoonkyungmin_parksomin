@@ -39,7 +39,9 @@ public class MemberController {
 		HttpStatus status = null;
 		try {
 			Member loginUser = memberService.login(member);
+			System.out.println(loginUser.toString());
 			if (loginUser != null) {
+				System.out.println(loginUser.getId());
 				String accessToken = jwtService.createAccessToken("id", loginUser.getId());// key, data
 				String refreshToken = jwtService.createRefreshToken("id", loginUser.getId());// key, data
 				memberService.saveRefreshToken(member.getId(), refreshToken);
@@ -49,8 +51,6 @@ public class MemberController {
 				resultMap.put("refresh-token", refreshToken);
 				resultMap.put("message", SUCCESS);
 				status = HttpStatus.ACCEPTED;
-
-				System.out.println(loginUser.getId());
 			} else {
 				resultMap.put("message", FAIL);
 				status = HttpStatus.ACCEPTED;
@@ -64,6 +64,7 @@ public class MemberController {
 		return new ResponseEntity<Map<String, Object>>(resultMap, status);
 	}
 
+
 	@CrossOrigin("*")
 	@GetMapping("/info/{id}")
 	public ResponseEntity<Map<String, Object>> getInfo(
@@ -72,11 +73,13 @@ public class MemberController {
 //		logger.debug("userid : {} ", userid);
 		Map<String, Object> resultMap = new HashMap<>();
 		HttpStatus status = HttpStatus.UNAUTHORIZED;
+		logger.info("{}", id);
 		if (jwtService.checkToken(request.getHeader("access-token"))) {
 			logger.info("사용 가능한 토큰!!!");
 			try {
 //				로그인 사용자 정보.
 				Member memberDto = memberService.userInfo(id);
+				logger.info("{}",memberDto);
 				resultMap.put("userInfo", memberDto);
 				resultMap.put("message", SUCCESS);
 				status = HttpStatus.ACCEPTED;
@@ -110,6 +113,7 @@ public class MemberController {
 		return new ResponseEntity<Map<String, Object>>(resultMap, status);
 
 	}
+
 
 	@CrossOrigin("*")
 	@PostMapping("/refresh")

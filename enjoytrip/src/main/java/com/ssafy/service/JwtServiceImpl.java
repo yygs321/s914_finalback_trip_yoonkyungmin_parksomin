@@ -22,14 +22,14 @@ public class JwtServiceImpl implements JwtService {
 	public static final Logger logger = LoggerFactory.getLogger(JwtServiceImpl2.class);
 
 //	SALT는 토큰 유효성 확인 시 사용하기 때문에 외부에 노출되지 않게 주의해야 한다.
-	private static final String SALT = "ssafySecret";
+	private static final String SALT = "ssafySecretssafySecretYoonKyungMinParkSoMin";
 	
 	private static final int ACCESS_TOKEN_EXPIRE_MINUTES = 1; // 분단위
 	private static final int REFRESH_TOKEN_EXPIRE_MINUTES = 2; // 주단위
 
 	@Override
 	public <T> String createAccessToken(String key, T data) {
-		return create(key, data, "access-token", 1000 * 60 * ACCESS_TOKEN_EXPIRE_MINUTES);
+		return create(key, data, "access-token", 1000 * 60 * 60 * 24 * ACCESS_TOKEN_EXPIRE_MINUTES);
 //		return create(key, data, "access-token", 1000 * 10 * ACCESS_TOKEN_EXPIRE_MINUTES);
 	}
 
