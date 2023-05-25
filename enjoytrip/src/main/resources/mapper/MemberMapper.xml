@@ -35,7 +35,7 @@
 	</update>
 
 	<insert id="insert" parameterType="Member">
-		insert into user values(#{id}, #{email}, #{pass}, #{name}, #{address}, 1, null)
+		insert into user(id, email, pass, name, grade, token, address) values(#{id}, #{email}, #{pass}, #{name}, 1, null, #{address})
 	</insert>
 
 	<update id="update" parameterType="Member">

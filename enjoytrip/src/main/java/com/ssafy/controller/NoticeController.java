@@ -15,7 +15,7 @@ public class NoticeController {
 
     private final BoardService<Notice> noticeService;
 
-
+    @CrossOrigin("*")
     @GetMapping(value = "/notices")
     public List<Notice> selectAll() {
         List<Notice> list=noticeService.selectAll();
