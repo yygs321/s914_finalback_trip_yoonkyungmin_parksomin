@@ -28,7 +28,7 @@ public class NoticeController {
         return notice;
     }
 
-    @PostMapping(value = "/notices")
+    @PostMapping(value = "/insertNotice")
     public int insert(@RequestBody Notice notice) {
         return noticeService.insert(notice);
     }
